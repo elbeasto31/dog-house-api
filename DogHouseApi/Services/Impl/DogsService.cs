@@ -40,6 +40,9 @@ namespace DogHouseApi.Services.Impl
             var sortAttribute = dto.Attribute?.ToPascalCase();
             var sortOrder = dto.Order;
             
+            if(dto.PageNumber == 0)
+                throw new ArgumentException(ExceptionMessages.ZeroPage);
+            
             if (sortOrder == null ^ sortAttribute == null)
                 throw new ArgumentException(ExceptionMessages.SortArgumentsError);
 
