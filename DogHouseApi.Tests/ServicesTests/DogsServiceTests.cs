@@ -77,7 +77,7 @@ namespace DogHouseApi.Tests.ServicesTests
         }
 
         [Fact]
-        public async Task GetDogsThrowsArgumentExceptionWhenSortArgumentsAreInvalid()
+        public async Task GetDogsThrowsArgumentExceptionWhenOneOfSortArgumentsIsNull()
         {
             // Arrange
             var nullAttributeDto = new GetDogsDto
