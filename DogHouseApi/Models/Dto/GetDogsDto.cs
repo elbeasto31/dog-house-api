@@ -7,7 +7,6 @@ namespace DogHouseApi.Models.Dto
     {
         public string Attribute { get; set; }
 
-
         [RegularExpression("^(desc|asc)$", ErrorMessage = ExceptionMessages.SortOrderValidation)]
         public string Order { get; set; }
 

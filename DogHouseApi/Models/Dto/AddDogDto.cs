@@ -9,9 +9,8 @@ namespace DogHouseApi.Models.Dto
 
         [Required] public string Color { get; set; }
 
-        [Required] public uint TailLength { get; set; }
+        public uint TailLength { get; set; }
 
-        [Required]
         [Range(1, uint.MaxValue, ErrorMessage = ExceptionMessages.DogWeightRange)]
         public uint Weight { get; set; }
     }
