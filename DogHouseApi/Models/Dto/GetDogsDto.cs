@@ -7,11 +7,13 @@ namespace DogHouseApi.Models.Dto
     {
         public string Attribute { get; set; }
 
+
         [RegularExpression("^(desc|asc)$", ErrorMessage = ExceptionMessages.SortOrderValidation)]
         public string Order { get; set; }
-        
+
         [Range(1, uint.MaxValue, ErrorMessage = ExceptionMessages.PageNumberRange)]
         public uint PageNumber { get; set; } = 1;
+
         public uint PageSize { get; set; } = 10;
     }
 }

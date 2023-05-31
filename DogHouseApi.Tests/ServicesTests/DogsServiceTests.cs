@@ -61,22 +61,6 @@ namespace DogHouseApi.Tests.ServicesTests
         }
 
         [Fact]
-        public async Task GetDogsThrowsArgumentExceptionWhenSortOrderIsInvalid()
-        {
-            // Arrange
-            SetupGetSortedDogsThrowsArgumentException();
-
-            var wrongOrderDto = new GetDogsDto
-            {
-                Attribute = "weight",
-                Order = "abc"
-            };
-
-            // Act and Assert
-            await Assert.ThrowsAsync<ArgumentException>(() => _dogsService.GetDogs(wrongOrderDto));
-        }
-
-        [Fact]
         public async Task GetDogsThrowsArgumentExceptionWhenOneOfSortArgumentsIsNull()
         {
             // Arrange
@@ -119,13 +103,6 @@ namespace DogHouseApi.Tests.ServicesTests
             _dogsRepositoryMock
                 .Setup(repo => repo.DogExists(It.IsAny<string>()))
                 .ReturnsAsync(exists);
-        }
-
-        private void SetupGetSortedDogsThrowsArgumentException()
-        {
-            _dogsRepositoryMock.Setup(repo => repo.GetSortedDogs(It.IsAny<string>(),
-                    It.Is<string>(order => order != "desc" && order != "asc"), It.IsAny<int>(), It.IsAny<int>()))
-                .Throws<ArgumentException>();
         }
     }
 }

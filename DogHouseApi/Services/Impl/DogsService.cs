@@ -24,6 +24,7 @@ namespace DogHouseApi.Services.Impl
             if (await DogsRepository.DogExists(dto.Name))
                 throw new ArgumentException(ExceptionMessages.DogAlreadyExists);
 
+            // TODO: Connect automatic mapping
             var dog = new Dog
             {
                 Name = dto.Name,
